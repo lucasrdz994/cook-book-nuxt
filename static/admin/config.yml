@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  repo: lucasrdz994/cook-book-nuxt
+  branch: main
+
+local_backend: true
+
+media_folder: static/uploads
+public_folder: /uploads
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: ddebj6x0k
+    api_key: 246378931716899
+
+editor:
+  preview: false
+
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
+    format: 'frontmatter'
+    create: true
+    slug: '{{day}}-{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Ingredients', name: 'ingredients', widget: 'list', add_to_top: true }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Categories'
+        name: 'categories'
+        widget: 'relation'
+        collection: 'blogcategories'
+        search_fields: ['title']
+        value_field: 'title'
+        display_fields: ['title']
+  - name: 'blogcategories'
+    label: 'Blog Categories'
+    folder: 'content/category'
+    format: 'json'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Color', name: 'color', widget: 'color' }
