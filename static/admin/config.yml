@@ -26,12 +26,14 @@ collections:
     slug: '{{day}}-{{slug}}'
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Cover', name: 'cover', widget: 'image' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Ingredients', name: 'ingredients', widget: 'list', add_to_top: true }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - label: 'Categories'
         name: 'categories'
+        multiple: true
         widget: 'relation'
         collection: 'blogcategories'
         search_fields: ['title']

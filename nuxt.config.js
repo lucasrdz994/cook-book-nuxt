@@ -42,6 +42,11 @@ export default {
     '@nuxt/content',
   ],
 
+  // Prevent duplicated styles
+  buefy: {
+    css: false
+  },
+
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
 
